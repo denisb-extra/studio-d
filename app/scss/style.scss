@@ -1,0 +1,210 @@
+$mw: 950px;
+$tw: 1200px;
+$lw: 1370px;
+
+@mixin border {
+	$red: random(256)-1;
+	$green: random(256)-1;
+	$blue: random(256)-1;
+ 	border: 1px solid red;
+ 	border-color: rgb($red, $green, $blue);
+}
+
+@mixin placeholder-color($color) {
+	&::-webkit-input-placeholder { /* WebKit browsers */
+	  color: $color;
+	}
+	&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	  color: $color;
+	}
+	&::-moz-placeholder { /* Mozilla Firefox 19+ */
+	  color: $color;
+	}
+	&:-ms-input-placeholder { /* Internet Explorer 10+ */
+	  color: $color;
+	}
+}
+
+@mixin flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Fonts */
+
+@font-face { 
+	font-family: 'rubik-light'; 
+	src: url('../fonts/Rubik-Light.ttf') format('truetype'); 
+} 
+@mixin f-l {
+  font-family: 'rubik-light';
+  font-weight: 300;
+}
+
+@font-face { 
+	font-family: 'rubik-regular'; 
+	src: url('../fonts/Rubik-Regular.ttf') format('truetype'); 
+} 
+@mixin f-r {
+  font-family: 'rubik-regular';
+  font-weight: 400;
+}
+
+@font-face { 
+	src: url('../fonts/Rubik-Medium.ttf') format('truetype'); 
+	font-family: 'rubik-medium';
+} 
+@mixin f-m {
+	font-family: 'rubik-medium';
+	font-weight: 500;
+}
+
+@font-face { 
+	font-family: 'rubik-bold'; 
+	src: url('../fonts/Rubik-Bold.ttf') format('truetype'); 
+} 
+@mixin f-b {
+	font-family: 'rubik-bold';
+	font-weight: 700;
+}
+
+
+@font-face { 
+	font-family: 'almoni-regular'; 
+	src: url('../fonts/almoni-dl-aaa-regular.otf') format('truetype'); 
+} 
+@mixin f-almoni-r {
+	font-family: 'almoni-regular'; 
+	font-weight: 400;
+}
+
+
+@font-face { 
+	font-family: 'FbLiddar-Bold'; 
+	src: url('../fonts/FbLiddar-Bold.ttf') format('truetype'); 
+} 
+@mixin f-lidar-b {
+	font-family: 'FbLiddar-Bold';
+	font-weight: 700;
+}
+
+@font-face { 
+	font-family: 'wellfont-regular'; 
+	src: url('../fonts/Wellfont.otf') format('truetype'); 
+} 
+@mixin f-wellfont-r {
+	font-family: 'wellfont-regular';
+	font-weight: 400;
+}
+
+@font-face { 
+	font-family: 'visby-heavy'; 
+	src: url('../fonts/VisbyCF-Heavy.otf') format('truetype'); 
+} 
+@mixin f-visby-h {
+  font-family: 'visby-heavy';
+  font-weight: 900;
+}
+
+
+
+/* /Fonts */
+
+
+
+
+/* Global */
+html {
+	margin: 0 !important;
+}
+body {
+	position: relative;
+	margin: 0;
+  	padding: 0;
+  	overflow-x: hidden;
+  	@include f-r;
+  	font-size: 18px;
+	line-height: 1;
+}
+
+input {
+	border: none;
+	outline: none;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+*, *::before, *::after {
+	box-sizing: border-box;
+	direction: rtl;
+}
+
+p,h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+}
+ul {
+	-webkit-padding-start: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+section {
+	width: 100%;
+	max-width: 1920px;
+	margin: auto;	
+	overflow: hidden;
+	position: relative;
+	padding: 75px 0;
+	@media only screen and (max-width : $lw) {
+		padding: 55px 0;
+	}
+	@media only screen and (max-width : $mw) {
+		padding: 35px 0;
+	}
+}
+
+.section-inner {
+	max-width: 1640px;
+	padding: 0 10px;
+	width: 100%;
+	margin: auto;
+	position: relative;
+}
+
+.content {
+	@include f-r;
+	font-size: 17px;
+	color: #18191C;
+	line-height: 1.5;
+	p,ul,li,h1,h2,h3,h4,h5,img {
+		margin-top: 15px;
+	}
+
+	ul {
+		list-style: disc;
+    	padding-right: 25px;
+	}
+
+
+
+	img {
+		max-width: 100%;
+	}
+
+	@media only screen and (max-width : $mw) {
+		font-size: 16px;
+	}
+}
+
+.centered {
+	text-align: center;
+}
+
+
+@import 'parts';
+@import 'index';
+@import 'inner';
