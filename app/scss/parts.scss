@@ -1,6 +1,9 @@
 .parts {
 	display: flex;
 	margin: 0 -45px;
+	&.ai-center {
+		align-items: center;
+	}
 	.part {
 		width: 50%;
 		padding: 0 45px;
@@ -20,6 +23,47 @@
 			}
 		}
 	}
+}
+
+.image {
+	text-align: center;
+	img {
+		max-width: 100%;
+	}
+}
+
+.button.decor {
+	border: 2px solid #F01613;
+	
+	padding: 13px 25px;
+	border-radius: 200px;
+	position: relative;
+	margin-top: 50px;
+	display: inline-block;
+
+	span, img {
+		vertical-align: middle;
+	}
+	span {
+		@include f-m;
+		font-size: 17px;
+		color: #18191C;
+		transition: 0.5s;
+	}
+	img {
+		margin-left: 5px;
+	}
+
+
+
+	cursor: pointer;
+	&:hover {
+		span {
+			color: #F01613;;
+		}
+
+	}
+    
 }
 
 .section-title {
@@ -46,6 +90,24 @@
 		.main {
 			position: relative;
 			z-index: 2;
+		}
+	}
+
+	&.red-line {
+		position: relative;
+		display: inline-block;
+		padding-bottom: 13px;
+		padding-left: 10px;
+		&:after {
+			content: "";
+			position: absolute;
+			display: block;
+			height: 4px;
+			width: 200%;
+			bottom: 0;
+			left: 0;
+			background-color: #F01613;
+			border-radius: 3px;
 		}
 	}
 
@@ -82,16 +144,14 @@
 }
 .section-subtitle {
 	@include f-r;
-	font-size: 18px;
-	color: #252A39;
+	font-size: 17px;
+	line-height: 1.5;
+	color: #18191C;
 	text-align: center;
-	margin-top: 10px;
-	@media only screen and (max-width : $tw) {
-		font-size: 18px;
-	}
-	@media only screen and (max-width : $mw) {
-		font-size: 16px;
-	}
+	margin: auto;
+	margin-top: 45px;
+	max-width: 735px;
+	
 }
 
 
