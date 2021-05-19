@@ -1411,7 +1411,6 @@ section.graduates-contacts {
 /* --------------------- /Section graduates-contacts ---------------------- */
 
 .wpcf7 {
-	overflow: auto;
 	margin: auto;
     margin-top: 55px;
     max-width: 560px;
@@ -1578,7 +1577,7 @@ footer {
 
 	.part-top {
         background: url("../images/index/bg-footer.png") no-repeat left bottom;
-        background-size: 95% auto;
+        background-size: auto 120%;
 		background-color: #18191C;
 
 
@@ -1628,44 +1627,6 @@ footer {
 				}
 			}
 		}
-
-		.wrapper-social {
-			margin: auto;
-			text-align: left;
-			margin-left: 0;
-			margin-right: auto;
-			display: inline-block;
-			margin-top: 35px;
-            border-top: 1px solid #979797;
-            padding: 10px 0;
-			.social {
-				display: flex;
-				align-items: center;
-				.title {
-					@include f-b;
-					font-size: 17px;
-					line-height: 2;
-					color: #fff;
-                    margin-left: 8px;
-				}
-				a {
-					color: #fff;
-					font-size: 30px;
-					margin: 8px;
-					transition: 0.5s;
-                    height: 55px;
-                    width: 55px;
-                    border: 2px solid #323232;
-                    border-radius: 100%;
-					&:hover {
-						color: #D1211F;
-					}
-
-                    @include flex-center;
-				}
-			}
-		}
-		
 	}
 
 	.part-bottom {
@@ -1699,6 +1660,8 @@ footer {
 
             padding-top: 40px;
 		    padding-bottom: 20px;
+
+            background-size: 95% auto;
 			.cols {
 				
 				flex-wrap: wrap;
@@ -1717,17 +1680,7 @@ footer {
 				}
 			}
 
-			.wrapper-social {
-				margin-top: 30px;
-                width: 100%;
-                
-                .social {
-                    justify-content: center;
-                    .title {
-                        display: none;
-                    }
-                }
-			}
+			
 		}
 	}
 
@@ -1744,3 +1697,52 @@ footer {
 	}
 }
 /* --------------------- /footer ---------------------- */
+
+.wrapper-social {
+    margin: auto;
+    text-align: left;
+    margin-left: 0;
+    margin-right: auto;
+    display: inline-block;
+    margin-top: 35px;
+    border-top: 1px solid #979797;
+    padding: 10px 0;
+    .social {
+        display: flex;
+        align-items: center;
+        .title {
+            @include f-b;
+            font-size: 17px;
+            line-height: 2;
+            color: #fff;
+            margin-left: 8px;
+        }
+        a {
+            color: #fff;
+            font-size: 30px;
+            margin: 8px;
+            transition: 0.5s;
+            height: 55px;
+            width: 55px;
+            border: 2px solid #323232;
+            border-radius: 100%;
+            &:hover {
+                color: #D1211F;
+            }
+
+            @include flex-center;
+        }
+    }
+
+    @media only screen and (max-width : $mw) {
+        margin-top: 30px;
+        width: 100%;
+        
+        .social {
+            justify-content: center;
+            .title {
+                display: none;
+            }
+        }
+    }
+}

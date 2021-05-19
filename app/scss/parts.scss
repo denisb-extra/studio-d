@@ -32,9 +32,8 @@
 	}
 }
 
-.button.decor {
+.button.decorated {
 	border: 2px solid #F01613;
-	
 	padding: 13px 25px;
 	border-radius: 200px;
 	position: relative;
@@ -151,7 +150,12 @@
 	margin: auto;
 	margin-top: 45px;
 	max-width: 735px;
-	
+	position: relative;
+	z-index: 9;
+
+	&.mt-20 {
+		margin-top: 20px;
+	}
 }
 
 
