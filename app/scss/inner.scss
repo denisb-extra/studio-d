@@ -122,6 +122,33 @@ section.top-inner {
 }
 /* --------------------- /Section top-inner ---------------------- */
 
+
+.anchor-links {
+	display: flex;
+	justify-content: center;
+	margin-top: 35px;
+	margin-bottom: 35px;
+	a {
+		@include f-r;
+		font-size: 16px;
+		color: #d8d8d8;;
+		margin: 0 10px;
+		text-decoration: underline;
+		transition: 0.5s;
+		&:hover {
+			color: #F01613;
+		}
+	}
+
+	@media only screen and (max-width : $mw) {
+		flex-direction: column;
+		margin-top: 25px;
+		margin-bottom: 25px;
+		a {
+			margin: 10px 0;
+		}
+	}
+}
 /* ---------------------- Section about ---------------------- */
 section.about {
 	position: relative;
@@ -249,7 +276,7 @@ section.gallery-grid-about {
                 transform: translateX(-50%) translateY(-50%);
                 min-height: 100%;
 
-                filter: grayscale(100%);
+                //filter: grayscale(100%);
                 transition: 0.5s;
                 z-index: 1;
             }
@@ -405,23 +432,25 @@ section.the-studio {
 					
 				}
 			}
-			&:hover {
-			//&:first-child {
-				flex-basis: 40%;
-				.inner {
-					.bg {
-						filter: grayscale(100%);
+			@media only screen and (min-width : $mw) {
+				&:hover {
+				//&:first-child {
+					flex-basis: 40%;
+					.inner {
+						.bg {
+							filter: grayscale(100%);
+						}
 					}
-				}
-				.wrapper {
-					.title {
-						top: 20px;
-					}
-					.hidden {
-						height: 250px;
-						opacity: 1;
-						top: 90px;
-						visibility: visible;
+					.wrapper {
+						.title {
+							top: 20px;
+						}
+						.hidden {
+							height: 250px;
+							opacity: 1;
+							top: 90px;
+							visibility: visible;
+						}
 					}
 				}
 			}
@@ -464,8 +493,10 @@ section.the-studio {
 						top: 0;
 					}
 				}
-
-				&:hover {
+				.content {
+					font-size: 14px;
+				}
+				&.hover {
 				//&:first-child {
 					flex-basis: 40%;
 					.inner {
@@ -483,9 +514,7 @@ section.the-studio {
 							top: 0;
 							visibility: visible;
 						}
-						.content {
-							font-size: 14px;
-						}
+						
 					}
 				}
 			}
@@ -511,8 +540,10 @@ section.our-team-inner {
 			
 			text-align: center;
 			.inner {
-				
+				height: 100%;
 				position: relative;
+				display: flex;
+				flex-direction: column;
 			}
 
 			.image {
@@ -553,6 +584,9 @@ section.our-team-inner {
 				position: relative;
 				z-index: 2;
 				margin-top: 10px;
+				padding-bottom: 75px;
+				position: relative;
+				flex-grow: 1;
 				.name {
 					@include f-lidar-b;
 					font-size: 54px;
@@ -570,8 +604,12 @@ section.our-team-inner {
 
 				.buttons {
 					display: flex;
-					justify-content: space-between;
+					justify-content: center;
 					margin-top: 30px;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					right: 0;
 					.btn {
 						@include f-m;
 						font-size: 17px;
@@ -580,10 +618,12 @@ section.our-team-inner {
     					padding: 13px 0px;
 						border-radius: 200px;
 						width: 47%;
+						margin: 0 1.5%;
 						white-space: nowrap;
 						cursor: pointer;
 						transition: 0.5s;
 						text-align: center;
+						display: block;
 						&:hover {
 							color: #F01613;
 						}
@@ -635,6 +675,7 @@ section.our-team-inner {
 				}
 				.info {
 					margin-top: 5px;
+					padding-bottom: 100px;
 					.name {
 						font-size: 45px;
 					}
@@ -646,6 +687,7 @@ section.our-team-inner {
 						margin-top: 15px;
 						.btn {
 							width: 100%;
+							margin: 0;
 							margin-top: 7px;
 						}
 					}
@@ -686,9 +728,9 @@ section.students {
 
 			.inner {
 				position: absolute;
-				top: 60%;
-				left: 50%;
-				transform: translateX(-50%);
+				top: 50%;
+				left: 8%;
+				right: 8%;
 				z-index: 9;
 				text-align: center;
 				.name {
@@ -698,17 +740,27 @@ section.students {
 				}
 				.content {
 					color: #fff;
+					font-size: 14px;
 				}
 			}
 		}
 	}
 
+	@media only screen and (max-width : 1700px) {
+		.sections {
+			.section {
+				.inner {
+					top: 40%;
+				}	
+			}
+		}
+	}
 	@media only screen and (max-width : $lw) {
 		.sections {
 			.section {
-				height: 500px;
+				height: 600px;
 				.inner {
-					width: 90%;
+					top: 30%;
 				}	
 			}
 		}
@@ -719,7 +771,7 @@ section.students {
 			flex-wrap: wrap;
 			.section {
 				width: 100%;
-				height: 320px;
+				height: 500px;
 				.inner {
 					top: auto;
 					bottom: 30px;
@@ -766,10 +818,19 @@ section.course {
 			display: block;
 			height: 4px;
 			bottom: -10px;
-			left: 0;
-			right: -200px;
+			width: 10%;
+			opacity: 0;
+			right: -100%;
 			background-color: #18191C;
 			border-radius: 3px;
+			transition: 1.5s;
+		}
+
+		&.scrolled-to {
+			&:after {
+				width: 200%;
+				opacity: 1;
+			}
 		}
 	}
 
@@ -826,6 +887,25 @@ section.course {
 						transition: 0.5s;
 
 					}
+
+					.play {
+						position: absolute;
+						z-index: 2;
+						top: 50%;
+						left: 50%;
+						transform: translateX(-50%) translateY(-50%);
+
+						@include flex-center;
+						width: 75px;
+						height: 75px;
+						background: rgba(0,0,0,0.5);
+						border-radius: 100%;
+						cursor: pointer;
+						img {
+							width: auto;
+							height: auto;
+						}
+					}
 				}
 				&.swiper-slide-active {
 					.image {
@@ -865,6 +945,7 @@ section.course {
 				&:nth-child(2) {
 					width: 100%;
 					margin-top: 35px;
+					padding-right: 20px;
 				}
 			}
 		}
@@ -875,12 +956,16 @@ section.course {
 
 		.slider-course {
 			.swiper-navigation {
-				left: 20px;
+				left: 50px;
 			}
 			.swiper-wrapper {
 				.swiper-slide {
 					.image {
-						height: 230px;
+						height: auto;
+						img {
+							height: auto;
+							width: 100%;
+						}
 					}
 				}
 			}
@@ -989,10 +1074,19 @@ section.course-info {
 				display: block;
 				height: 4px;
 				bottom: -10px;
-				left: -20px;
-				right: -100px;
+				right: -30%;
+				width: 10%;
+				opacity: 0;
 				background-color: #F01613;
 				border-radius: 3px;
+				transition: 1.5s;
+			}
+
+			&.scrolled-to {
+				&:after {
+					width: 140%;
+					opacity: 1;
+				}
 			}
 		}
 	}
@@ -1229,6 +1323,20 @@ section.lucky-call {
 			position: relative;
 			overflow: hidden;
 			text-align: center;
+			cursor: pointer;
+			&:hover, &.active {
+				.inner {
+					background: #F01613;
+				}
+				.icon {
+					img {
+						filter: brightness(0) invert(1);
+					}
+				}
+				.text {
+					color: #fff;
+				}
+			}
 			.inner {
 				overflow: hidden;
 				position: relative;
@@ -1236,11 +1344,13 @@ section.lucky-call {
 				border-radius: 5px;
 				padding: 17px;
 				height: 100%;
+				transition: 0.5s;
 			}
 			.icon {
 				height: 50px;
 				img {
 					max-height: 100%;
+					transition: 0.5s;
 				}
 			}
 			.text {
@@ -1248,6 +1358,7 @@ section.lucky-call {
 				font-size: 17px;
 				color: #000;
 				margin-top: 10px;
+				transition: 0.5s;
 			}
 		}
 	}
@@ -1423,7 +1534,7 @@ section.blog {
 				}
 
 				cursor: pointer;
-				&:hover {
+				&:hover, &.active {
 					background: #F01613;
 				}
 			}
@@ -1566,8 +1677,10 @@ section.blog {
 .box-post {
 	display: block;
 	text-align: right;
+	cursor: pointer;
 	.inner {
 		display: flex;
+		height: 100%;
 	}
 
 	.image {
@@ -1575,6 +1688,25 @@ section.blog {
 		flex-shrink: 0;
 		@include flex-center;
 		overflow: hidden;
+		position: relative;
+		.play {
+			position: absolute;
+			z-index: 2;
+			top: 50%;
+			left: 50%;
+			transform: translateX(-50%) translateY(-50%);
+
+			@include flex-center;
+			width: 75px;
+			height: 75px;
+			background: rgba(0,0,0,0.5);
+			border-radius: 100%;
+			cursor: pointer;
+			img {
+				width: auto;
+				height: auto;
+			}
+		}
 		img {
 			height: 100%;
 			width: auto;
@@ -1609,6 +1741,13 @@ section.blog {
 			font-size: 17px;
 			color: #18191C;
 			margin-top: 25px;
+			transition: 0.5s;
+		}
+	}
+
+	&:hover {
+		.btn {
+			color: #F01613;
 		}
 	}
 
@@ -1630,7 +1769,7 @@ section.blog {
 				font-size: 21px;
 			}
 			.title {
-				font-size: 20px;
+				font-size: 18px;
 			}
 			.desc {
 				font-size: 14px;
@@ -1654,15 +1793,23 @@ section.post {
 		float: left;
 		margin-right: 50px;
 		margin-bottom: 50px;
+		
 		&.mobile {
 			display: none;
 		}
 		img {
 			width: 100%;
+			margin-top: 0;
 		}
 	}
 
 	.content {
+		.section-title {
+			margin-top: 0;
+			p {
+				margin-top: 0;
+			}
+		}
 		@include f-r;
 		font-size: 17px;
 		color: #18191C;

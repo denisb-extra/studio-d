@@ -40,6 +40,26 @@
 	margin-top: 50px;
 	display: inline-block;
 
+	.icon-inimated {
+		margin-left: 5px;
+		display: inline-block;
+		vertical-align: middle;
+		position: relative;
+		.gif {
+			position: absolute;
+			left: 0;
+			top: 0;
+			height: 100%;
+			width: 100%;
+			opacity: 0;
+			transition: 0.5s;
+		}
+
+		.static {
+			opacity: 1;
+			transition: 0.5s;
+		}
+	}
 	span, img {
 		vertical-align: middle;
 	}
@@ -49,7 +69,7 @@
 		color: #18191C;
 		transition: 0.5s;
 	}
-	img {
+	>img {
 		margin-left: 5px;
 	}
 
@@ -61,6 +81,15 @@
 			color: #F01613;;
 		}
 
+		.icon-inimated {
+			.static {
+				opacity: 0;
+			}
+			.gif {
+				opacity: 1;
+			}
+		}
+
 	}
     
 }
@@ -68,6 +97,7 @@
 .section-title {
 	@include f-b;
 	font-size: 55px;
+	line-height: 1.2;
 	color: #18191C;
 	text-align: right;
 	&.decorated {
@@ -102,12 +132,21 @@
 			position: absolute;
 			display: block;
 			height: 4px;
-			width: 200%;
+			width: 10%;
+			opacity: 0;
 			bottom: 0;
-			left: 0;
+			right: -100%;
 			background-color: #F01613;
 			border-radius: 3px;
+			transition: 1.5s;
 		}
+		&.scrolled-to {
+			&:after {
+				width: 200%;
+				opacity: 1;
+			}
+		}
+		
 	}
 
 	&.centered {
