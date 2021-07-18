@@ -1012,6 +1012,10 @@ section.courses {
     section.courses .button-try {
       margin-top: 30px; } }
   @media only screen and (max-width: 950px) {
+    section.courses .section-title {
+      text-align: center; }
+      section.courses .section-title .decor {
+        width: 100%; }
     section.courses .boxes {
       margin: -20px -10px;
       margin-top: 35px; }
@@ -1334,6 +1338,31 @@ section.gallery-grid {
         line-height: 0.4; } }
 
 /* --------------------- /Section gallery-grid ---------------------- */
+.swiper-navigation.dec {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  z-index: 9; }
+  .swiper-navigation.dec .arrow {
+    height: 50px;
+    width: 50px;
+    border: 2px solid #F01613;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.5s; }
+    .swiper-navigation.dec .arrow:hover {
+      background: #F01613; }
+    .swiper-navigation.dec .arrow.swiper-next {
+      margin-left: 10px; }
+      .swiper-navigation.dec .arrow.swiper-next img {
+        transform: scaleX(-1); }
+
 /* ---------------------- Section our-team ---------------------- */
 section.our-team {
   background: url("../images/index/bg-team.png") no-repeat; }
@@ -1343,30 +1372,6 @@ section.our-team {
     overflow: visible; }
     section.our-team .slider-wrapper .swiper-container {
       overflow: visible; }
-    section.our-team .slider-wrapper .swiper-navigation {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      display: flex;
-      z-index: 9; }
-      section.our-team .slider-wrapper .swiper-navigation .arrow {
-        height: 50px;
-        width: 50px;
-        border: 2px solid #F01613;
-        border-radius: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: auto;
-        margin-top: 20px;
-        cursor: pointer;
-        transition: 0.5s; }
-        section.our-team .slider-wrapper .swiper-navigation .arrow:hover {
-          background: #F01613; }
-        section.our-team .slider-wrapper .swiper-navigation .arrow.swiper-next {
-          margin-left: 10px; }
-          section.our-team .slider-wrapper .swiper-navigation .arrow.swiper-next img {
-            transform: scaleX(-1); }
     section.our-team .slider-wrapper .swiper-slide {
       display: flex;
       align-items: flex-start; }
@@ -1425,6 +1430,10 @@ section.our-team {
     section.our-team .slider-wrapper {
       margin-top: 55px; } }
   @media only screen and (max-width: 950px) {
+    section.our-team .section-title {
+      text-align: center; }
+      section.our-team .section-title .decor {
+        width: 100%; }
     section.our-team .slider-wrapper {
       margin-top: 35px; } }
   @media only screen and (max-width: 700px) {
@@ -1951,11 +1960,11 @@ section.about {
       position: relative;
       bottom: 0; }
     section.about .decor.right {
-      right: 0;
+      right: -45px;
       top: 45px; }
     section.about .decor.left {
       left: 0;
-      bottom: 0px; }
+      top: 400px; }
     @media only screen and (max-width: 1830px) {
       section.about .decor.right {
         top: 0; } }
@@ -1977,9 +1986,13 @@ section.about {
         bottom: -200px; }
         section.about .decor.left img {
           width: 350px; } }
+  section.about .img-main {
+    text-align: center; }
+    section.about .img-main img {
+      width: auto !important; }
   section.about .section-inner {
     position: relative;
-    z-index: 5; }
+    z-index: 10; }
 
 /* --------------------- /Section about ---------------------- */
 /* ---------------------- Section gallery-grid-about ---------------------- */
@@ -2418,7 +2431,7 @@ section.course .title {
     position: absolute;
     display: block;
     height: 4px;
-    bottom: -10px;
+    bottom: -20px;
     width: 10%;
     opacity: 0;
     right: -100%;
@@ -2544,14 +2557,18 @@ section.course.inverse {
         transform: scaleX(-1); }
   section.course.inverse .title:after {
     right: -20%;
-    left: -50%; }
+    left: -50px; }
+  section.course.inverse .title.scrolled-to:after {
+    width: 120%; }
   @media only screen and (max-width: 950px) {
     section.course.inverse .sections .section:nth-child(1) {
       padding-left: 40px;
       padding-right: 60px; }
     section.course.inverse .title:after {
       left: 0;
-      right: -200px; } }
+      right: -200px; }
+    section.course.inverse .title.scrolled-to:after {
+      width: 200%; } }
 
 /* --------------------- /Section course ---------------------- */
 /* ---------------------- Section course-info ---------------------- */
@@ -2566,7 +2583,7 @@ section.course-info .decor {
 
 section.course-info .cols {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   margin: 0 -40px; }
   section.course-info .cols .col {
     width: 50%;
@@ -2854,7 +2871,8 @@ section.graduates {
           box-shadow: 0px 3px 10px rgba(124, 33, 79, 0.15); }
     section.graduates .slider-graduates .swiper-slide {
       display: flex;
-      align-items: center; }
+      align-items: center;
+      max-width: 795px; }
       section.graduates .slider-graduates .swiper-slide .image {
         width: 45%;
         font-size: 0;

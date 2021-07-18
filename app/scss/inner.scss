@@ -161,12 +161,12 @@ section.about {
 			bottom: 0;
 		}
 		&.right {
-			right: 0;
+			right: -45px;
 			top: 45px;
 		}
 		&.left {
 			left: 0;
-			bottom: 0px;
+			top: 400px;
 		}
 
 		@media only screen and (max-width : 1830px) {
@@ -206,10 +206,16 @@ section.about {
 			}
 		}
 	}
+	.img-main {
+		text-align: center;
+		img {
+			width: auto !important;
+		}
+	}
 
 	.section-inner {
 		position: relative;
-		z-index: 5;
+		z-index: 10;
 	}
 
 	
@@ -817,7 +823,7 @@ section.course {
 			position: absolute;
 			display: block;
 			height: 4px;
-			bottom: -10px;
+			bottom: -20px;
 			width: 10%;
 			opacity: 0;
 			right: -100%;
@@ -1005,7 +1011,12 @@ section.course.inverse {
 	.title {
 		&:after {
 			right: -20%;
-			left: -50%;
+			left: -50px;
+		}
+		&.scrolled-to {
+			&:after {
+				width: 120%;
+			}
 		}
 	}
 
@@ -1022,6 +1033,11 @@ section.course.inverse {
 			&:after {
 				left: 0;
 				right: -200px;
+			}
+			&.scrolled-to {
+				&:after {
+					width: 200%;
+				}
 			}
 		}
 	}
@@ -1043,7 +1059,7 @@ section.course-info {
 	}
 	.cols {
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
 		margin: 0 -40px;
 		.col {
 			width: 50%;
@@ -1429,6 +1445,7 @@ section.graduates {
         .swiper-slide {
             display: flex;
             align-items: center;
+			max-width: 795px;
             .image {
                 width: 45%;
                 font-size: 0;

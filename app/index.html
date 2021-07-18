@@ -587,7 +587,10 @@
 						</div>
 					</div>
 
-					<div class="swiper-pagination pagination-graduates"></div>
+					<div class="swiper-navigation">
+						<div class="arrow swiper-next"><img src="images/icons/arrow-left.png" alt=""></div>
+						<div class="arrow swiper-prev"><img src="images/icons/arrow-left.png" alt=""></div>
+					</div>
 				</div>
 			</div>
 			<div class="section contacts">
@@ -775,11 +778,9 @@
 				},
 				autoplay: false,
 				speed: 1000,
-				pagination: {
-				    el: '.pagination-graduates',
-				    type: 'bullets',
-				    clickable: true,
-
+				navigation: {
+					nextEl: '.swiper-next',
+					prevEl: '.swiper-prev',
 				},
 			});
 		});

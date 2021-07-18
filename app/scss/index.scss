@@ -723,6 +723,12 @@ section.courses {
     }
 
     @media only screen and (max-width : $mw) {
+        .section-title {
+            text-align: center;
+            .decor {
+                width: 100%;
+            }
+        }
         .boxes {
             margin: -20px -10px;
             margin-top: 35px;
@@ -1195,7 +1201,37 @@ section.gallery-grid {
     
 }
 /* --------------------- /Section gallery-grid ---------------------- */
+.swiper-navigation.dec {
+    position: absolute;
+    bottom: 0;
+    left: 0;
 
+    display: flex;
+    z-index: 9;
+
+    .arrow {
+        height: 50px;
+        width: 50px;
+        border: 2px solid #F01613;
+        border-radius: 100%;
+        @include flex-center;
+        margin: auto;
+        margin-top: 20px;
+
+        cursor: pointer;
+        transition: 0.5s;
+        &:hover {
+            background: #F01613;
+        }
+
+        &.swiper-next {
+            margin-left: 10px;
+            img {
+                transform: scaleX(-1);
+            }
+        }
+    }
+}
 /* ---------------------- Section our-team ---------------------- */
 section.our-team {
     background: url("../images/index/bg-team.png") no-repeat;
@@ -1207,37 +1243,7 @@ section.our-team {
         .swiper-container {
             overflow: visible;
         }
-        .swiper-navigation {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-
-            display: flex;
-            z-index: 9;
-
-            .arrow {
-                height: 50px;
-                width: 50px;
-                border: 2px solid #F01613;
-                border-radius: 100%;
-                @include flex-center;
-                margin: auto;
-                margin-top: 20px;
-
-                cursor: pointer;
-                transition: 0.5s;
-                &:hover {
-                    background: #F01613;
-                }
-
-                &.swiper-next {
-                    margin-left: 10px;
-                    img {
-                        transform: scaleX(-1);
-                    }
-                }
-            }
-        }
+        
         .swiper-slide {
             display: flex;
             align-items: flex-start;
@@ -1317,6 +1323,12 @@ section.our-team {
     }
 
     @media only screen and (max-width : $mw) {
+        .section-title {
+            text-align: center;
+            .decor {
+                width: 100%;
+            }
+        }
         .slider-wrapper {
             margin-top: 35px;
         }
